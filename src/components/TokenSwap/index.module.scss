@@ -1,0 +1,98 @@
+.wrapper {
+  background-color: rgb(9, 15, 25);
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  :global {
+    .choose-contract {
+      .list-contract {
+        .contract-item {
+          cursor: pointer;
+          opacity: 0.65;
+          &.is-active {
+            color: rgba(17, 236, 229, 1);
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .split {
+      width: 100%;
+      height: 1px;
+      background-color: #313d50;
+      margin: 1rem 0;
+    }
+    .wrapper-input {
+      background-color: #0f1724;
+      padding-right: 0.5rem;
+      position: relative;
+      box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+      input {
+        width: 100%;
+        font-size: 18px;
+        color: #c6d3e7;
+        background-color: transparent;
+        flex: 1;
+        padding-right: 0.5rem;
+      }
+      .max-btn {
+        background-color: transparent;
+        transition: 0.15s linear;
+        transform: translateY(0px);
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+      .token-symbol {
+        font-weight: 600;
+        color: rgb(198, 211, 231);
+      }
+    }
+    .wrapper-exchange-icon {
+      cursor: pointer;
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #0f1724;
+      margin: 0.5rem auto;
+      transform: rotate(90deg);
+      box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+      &:hover {
+        svg {
+          fill: #c6d3e7;
+        }
+      }
+    }
+
+    .swap-info {
+      background-color: #0f1724;
+      padding: 0.5rem;
+      font-size: 14px;
+      box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+      p {
+        &:not(:last-child) {
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+
+    .btn-action {
+      width: 100%;
+      height: 32px;
+      background-color: rgba(17, 236, 229, 1);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .loading-icon {
+        svg {
+          fill: #000;
+        }
+      }
+    }
+  }
+}

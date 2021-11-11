@@ -1,0 +1,165 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: #0f1724;
+  box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+  :global {
+    .container {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      padding: 0 0.5rem;
+      .wrapper-logo {
+        img.logo-image {
+          width: 40px;
+          border-radius: 50%;
+        }
+        span.logo-text {
+          font-weight: bold;
+          font-family: cursive;
+          display: none;
+        }
+        @media only screen and (min-width: 992px) {
+          span.logo-text {
+            display: block;
+            font-size: 1.5em;
+          }
+        }
+        @media only screen and (min-width: 1440px) {
+          span.logo-text {
+            font-size: 2em;
+          }
+        }
+      }
+
+      .wrapper-input-search {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 80px - 2rem);
+        @media only screen and (min-width: 768px) {
+          width: 500px;
+        }
+        .wrapper-content {
+          position: relative;
+          input {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(7, 13, 23);
+            color: rgb(146, 171, 207);
+            width: 100%;
+            font-size: 16px;
+            background-color: #070d17;
+            color: #c6d3e7;
+            border: 1px solid rgba(78, 106, 146, 0.314);
+            border-radius: 3px;
+            transition: 0.15s linear;
+            padding-right: calc(1rem + 22px );
+            &::placeholder {
+              color: #c6d3e7;
+            }
+            &:hover, &:focus {
+              border-color: rgba(49, 61, 80, 1);
+            }
+            &:focus ~ .search-results {
+              transform: translateY(0.25rem);
+              opacity: 1;
+            }
+          }
+          .wrapper-icon {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 22px;
+          }
+          .search-results {
+            opacity: 0;
+            transition: 0.15s linear;
+            position: absolute;
+            width: 100%;
+            background-color: #0f1724;
+            transform: translateY(0.75rem);
+            border-radius: 3px;
+            border: 1px solid rgba(78, 106, 146, 0.314);
+            .result-item {
+              padding: 0.5rem;
+              cursor: pointer;
+              max-width: 100%;
+              display: block;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              &:hover {
+                opacity: 0.65;
+              }
+              &__name {
+                font-weight: 600;
+              }
+              &:not(:last-child) {
+                border: 1px solid #000;
+              }
+            }
+          }
+        }
+      }
+
+      .connect-wallet-btn {
+        cursor: pointer;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 3px;
+        border: 1px solid;
+        border: 1px solid #11ece5;
+        color: #11ece5;
+        font-weight: bold;
+        position: relative;
+        .wrapper-wallet-address {
+          display: none;
+          padding: 0 1rem;
+          .livenow {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            height: 12px;
+            width: 12px;
+            background: rgba(17, 236, 229, 1);
+            box-shadow: 0 0 0 0 rgba(17, 236, 229, 1);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+          }
+        }
+        .wrapper-wallet-icon {
+          width: 40px;
+          justify-content: center;
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
+        @media only screen and (min-width: 992px) {
+          .wrapper-wallet-address {
+            display: block;
+          }
+          .wrapper-wallet-icon {
+            display: none;
+          }
+        }
+      }
+      .wallet-icon {
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(17, 236, 229, 1);
+        height: 40px;
+        border-radius: 3px;
+      }
+    }
+  }
+}

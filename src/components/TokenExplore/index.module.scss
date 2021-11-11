@@ -1,0 +1,101 @@
+.wrapper {
+  width: 100%;
+  :global {
+    .explore-type {
+      &__item {
+        cursor: pointer;
+        background-color: #1e2735;
+        color: #7f8fa9;
+        border-radius: 4px;
+        border: 1px solid #1e2735;
+        margin-right: 0.5rem;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 0.5rem;
+        }
+        &:hover {
+          color: #ccd7e9;
+          svg {
+            fill: #ccd7e9;
+          }
+        }
+        &.is-active {
+          border: 1px solid rgb(17, 236, 229);
+          // font-weight: bold;
+          color: rgb(17, 236, 229);
+          svg {
+            fill: rgb(17, 236, 229);
+          }
+        }
+      }
+    }
+    .wrapper-input-search {
+      position: relative;
+      input {
+        width: 300px;
+        background-color: rgba(16, 23, 34, 1);
+        border: 1px solid rgba(49, 61, 80, 1);
+        color: #7f8fa9;
+      }
+      .search-results {
+        position: absolute;
+        padding: 0.5rem;
+        right: 0;
+        top: 100%;
+        transform: translateY(0.5rem);
+        background-color: #0f1724;
+        box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+      }
+    }
+
+    table {
+      background-color: #090f19;
+      thead {
+        background-color: rgb(9, 15, 25);
+        box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+        th {
+          text-align: left;
+        }
+      }
+      tbody {
+        tr {
+          &:not(:last-child) {
+            border-bottom: 1px solid #000;
+          }
+        }
+      }
+      tr {
+        td, th {
+          padding: 0.5rem;
+          @media only screen and (max-width: 576px) {
+            &.token-price {
+              display: none;
+            }
+          }
+
+          @media only screen and (max-width: 768px) {
+            &.token-market-cap, &.token-watcher {
+              display: none;
+            }
+          }
+          // @media only screen and (min-width: 992px) {
+          //   &.token-market-cap, &.token-watcher {
+          //     display: unset;
+          //   }
+          // }
+        }
+      }
+    }
+    .table-content {
+      background-color: rgb(15, 23, 36);
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+    }
+  }
+}

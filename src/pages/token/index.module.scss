@@ -1,0 +1,232 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+  }
+  @media only screen and (min-width: 1440px) {
+    padding: 1rem;
+  }
+  // color: rgb(198, 211, 231);
+  :global {
+    .split {
+      width: 100%;
+      height: 1px;
+      background-color: #313d50;
+      margin: 0.5rem 0;
+    }
+
+    .left-content {
+      width: 100%;
+      @media only screen and (min-width: 1200px) {
+        width: 300px;
+        padding-right: 1rem;
+      }
+      @media only screen and (min-width: 1440px) {
+        width: 350px;
+      }
+      .token-info {
+        background-color: rgb(9, 15, 25);
+        padding: 1rem;
+        border-radius: 3px;
+      }
+    }
+
+    .main-content {
+      width: 100%;
+      margin-top: 1rem;
+      @media only screen and (min-width: 1200px) {
+        width: calc(100% - 600px);
+        padding-right: 1rem;
+        margin-top: 0;
+      }
+      @media only screen and (min-width: 1440px) {
+        width: calc(100% - 700px);
+        max-height: calc(100vh - 64px - 2rem);
+      }
+      &__chart {
+        background-color: rgb(9, 15, 25);
+        padding: 1rem;
+        border-radius: 3px;
+        .header-info {
+          flex-direction: column;
+        }
+        .bscscan-info {
+          margin-top: 0.5rem;
+        }
+        .token-price {
+          margin-top: 0.5rem;
+          display: block;
+        }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .header-info {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .bscscan-info {
+            margin-top: 0;
+          }
+        }
+        @media only screen and (min-width: 1600px) {
+          .header-info {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .bscscan-info {
+            margin-top: 0;
+          }
+        }
+        .info-item {
+          margin-right: 1.5rem;
+        }
+        .token-name {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+      &__info {
+        .tabs {
+          display: flex;
+          .tab-item {
+            background-color: #0f1724;
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #1e2735;
+            box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+            .tab-title {
+              display: none;
+            }
+            @media only screen and (min-width: 576px) {
+              .tab-title {
+                display: block;
+                margin-left: 0.5rem;
+              }
+            }
+            &:hover {
+              color: #ccd7e9;
+            }
+            // svg {
+            //   margin-right: 0.5rem;
+            // }
+            &.is-active {
+              border: 1px solid rgb(17, 236, 229);
+              color: rgb(17, 236, 229);
+              svg {
+                fill: rgb(17, 236, 229);
+              }
+            }
+          }
+        }
+
+        .trending-trade {
+          display: flex;
+          height: 0;
+          transition: 0.15s linear;
+          border-radius: 3px;
+          overflow: hidden;
+          &.is-show {
+            height: 30px;
+            margin-top: 1rem;
+            box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+            .middle-image {
+              opacity: 1;
+            }
+          }
+          .buyer, .seller {
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            transition: 0.2s ease;
+          }
+          .buyer {
+            background-color: #3bb78f;
+            background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+          }
+          .seller {
+            background-color: #a40606;
+            background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+          }
+          .middle-image {
+            opacity: 0;
+            img {
+              height: 20px;
+              position: absolute;
+              transform: translate(-50%, 25%);
+            }
+          }
+        }
+          
+        table {
+          box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+          background-color: #090f19;
+          thead {
+            background-color: #090f19;
+            box-shadow: rgb(0 0 0 / 27%) 0px 2px 3px 2px;
+          }
+          tbody {
+            display: block;
+            max-height: 360px;
+            overflow: auto;
+            tr {
+              &:not(:last-child) {
+                border-bottom: 1px solid #000;
+              }
+              &.is-buy {
+                color: #28a745 !important;
+                &:hover {
+                  background-color: rgba(36,240,134,.12156862745098039);
+                }
+              }
+              &.is-sell {
+                color: #dc3545 !important;
+                &:hover {
+                  background-color: rgba(255,55,55,.09019607843137255);
+                }
+              }
+            }
+          }
+          thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;/* even columns width , fix width of table too*/
+          }
+          th, td {
+            padding: 0.5rem;
+            vertical-align: top;
+            word-wrap: break-word;
+            &:last-child {
+              text-align: right;
+            }
+            @media only screen and (max-width: 576px) {
+              &.traded, &.price-token {
+                display: none;
+              }
+            }
+          }
+          th:last-child {
+            padding-right: 1rem;
+          }
+        }
+      }
+    }
+    .right-content {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      height: fit-content;
+      @media only screen and (min-width: 1200px) {
+        margin-top: 0;
+        width: 300px;
+      }
+      @media only screen and (min-width: 1440px) {
+        width: 350px;
+      }
+    }
+  }
+}

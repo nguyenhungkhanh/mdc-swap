@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { Web3ReactProvider } from "./contexts/Web3ReactContext";
+
+import './index.scss';
+import { HistoryTokenProvider } from './contexts/HistoryTokenContext';
+
+declare global {
+  interface Window {
+    ethereum: any;
+    web3: any;
+  }
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Web3ReactProvider>
+      <HistoryTokenProvider>
+        <App />
+      </HistoryTokenProvider>
+    </Web3ReactProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
